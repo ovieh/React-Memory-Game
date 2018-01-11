@@ -1,0 +1,62 @@
+[
+	{
+		"id": 1,
+		"name": "Liono",
+		"image": "./images/lion.jpg"
+	},
+	{
+		"id": 2,
+		"name": "Batman",
+		"image": "./images/batman.jpg"
+	},
+	{
+		"id": 3,
+		"name": "Cobra Commander",
+		"image": "./images/cobra_commander.jpg"
+	},
+	{
+		"id": 4,
+		"name": "Dale",
+		"image": "./images/dale.jpg"
+	},
+	{
+		"id": 5,
+		"name": "Dark Wing Duck",
+		"image": "./images/darkwing_duck.jpg"
+	},
+	{
+		"id": 6,
+		"name": "Fivel",
+		"image": "./images/fivel.jpg"
+	},
+	{
+		"id": 7,
+		"name": "Donatello",
+		"image": "./images/donatello.jpg"
+	},
+	{
+		"id": 8,
+		"name": "Gambit",
+		"image": "./images/gambit.jpg"
+	},
+	{
+		"id": 9,
+		"name": "Inspector Gadget",
+		"image": "./images/inspector-gadget.jpg"
+	},
+	{
+		"id": 10,
+		"name": "Leader-1",
+		"image": "./images/leader-1.jpg"
+	},
+	{
+		"id": 11,
+		"name": "Optimumus Prime",
+		"image": "./images/optimumus_prime.jpg"
+	},
+	{
+		"id": 12,
+		"name": "Skeletor",
+		"image": "./images/skeletor.jpg"
+	}
+]
