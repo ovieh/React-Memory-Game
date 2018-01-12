@@ -10,14 +10,24 @@ class App extends Component {
 		super(props);
 		this.state = { characters, score: 0, highScore: 0 };
 	}
+	// shuffleCards() {
+
+	// }
+	pickCard = id => {
+		// this.shuffleCards();
+		const characters = this.state.characters.sort(()=> 0.5 - Math.random());
+		this.setState({characters});
+	}
 	render() {
 		return (
 			<div>
-				<Navbar fixed="top" color="dark">
+				<Navbar fixed="top" className="text-white">
 					<NavbarBrand href="/"> 
 						React Memory Game
 					</NavbarBrand>
-					<span>Score: {this.state.score}</span> | <span>High Score: {this.state.highScore}</span>
+					<div>
+						<span>Score: {this.state.score}</span> | <span>High Score: {this.state.highScore}</span>
+					</div>
 				</Navbar>
 				<Jumbotron>
 					<Container>
@@ -29,6 +39,7 @@ class App extends Component {
 					<Row>
 						{/* <img src={ require(`${this.state.characters[0].image}`) } alt={this.state.characters[0].name} /> */}
 						{ this.state.characters.map(character => <ImgCard 
+							pickCard={this.pickCard}
 							key={character.id}
 							id={character.id}
 							name={character.name}

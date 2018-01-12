@@ -1,8 +1,15 @@
-.navbar {
+nav {
   min-height: 85px;
-  box-shadow: 0 14px 28px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.22)
+  box-shadow: 0 14px 28px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.22);
+  background-color: rgb(32, 105, 18);
+  font-size: calc(10px + 14 * (100vw - 320px)/ 800);
 
 }
 .jumbotron {
   margin-top: 85px;
+}
+
+a.navbar-brand {
+  font-weight: 900;
+  color:  rgb(255, 255, 255);
 }
