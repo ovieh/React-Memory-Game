@@ -10,13 +10,23 @@ class App extends Component {
 		super(props);
 		this.state = { characters, score: 0, highScore: 0 };
 	}
-	// shuffleCards() {
-
-	// }
-	pickCard = id => {
-		// this.shuffleCards();
+	shuffleCards = () => {
 		const characters = this.state.characters.sort(()=> 0.5 - Math.random());
 		this.setState({characters});
+
+	}
+	pickCard = id => {
+		const characters = this.state.characters.map( character => {  
+			if(id === character.id) {
+				console.log(character.name);
+				character.clicked = true;
+			}
+			// console.log(character)
+		});
+		
+		this.setState({characters});
+		this.shuffleCards();
+
 	}
 	render() {
 		return (
