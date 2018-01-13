@@ -24,6 +24,7 @@ class App extends Component {
 		}
 		pickCard = id => {
 				let score = this.state.score;
+				let highScore = this.state.highScore;
 				const characters = this
 						.state
 						.characters
@@ -31,15 +32,18 @@ class App extends Component {
 								if (id === character.id) {
 										if (character.clicked) {
 												score = 0;
+												
 												this.setState({
 														characters: this.resetClicked()
 												});
 										} else if (!character.clicked) {
 												character.clicked = true;
 												score = score + 1;
+												if(highScore <= score) highScore = highScore + 1;
 										}
+
 								}
-								this.setState({characters, score: score});
+								this.setState({characters, score, highScore});
 						});
 				this.shuffleCards();
 
@@ -52,8 +56,6 @@ class App extends Component {
 						.map(character => character.clicked = false);
 				this.setState({characters});
 		}
-
-		increaseScore() {}
 
 		render() {
 				return (
