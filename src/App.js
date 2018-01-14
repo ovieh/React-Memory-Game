@@ -10,10 +10,11 @@ class App extends Component {
 				this.state = {
 						characters,
 						score: 0,
-						highScore: 0
+						highScore: 0,
+						active: false
 				};
 		}
-		shuffleCards = () => {
+		shuffleCards() {
 				const characters = this
 						.state
 						.characters
@@ -30,22 +31,43 @@ class App extends Component {
 						.characters
 						.map(character => {
 								if (id === character.id) {
-										if (character.clicked) {
+										if (!character.clicked) {
+												character.clicked = true;
+												score = score + 1;
+												if (highScore <= score) 
+														highScore = score;
+												}
+										else {
 												score = 0;
-												// renderAlert();
+												// renderStatus();
 												this.setState({
 														characters: this.resetClicked()
 												});
-										} else if (!character.clicked) {
-												character.clicked = true;
-												score = score + 1;
-												if(highScore <= score) highScore = highScore + 1;
 										}
-
 								}
-								this.setState({characters, score, highScore});
+								this.setState({characters, score, highScore, active: true});
 						});
 				this.shuffleCards();
+
+		}
+
+		//Conditionally Render Status
+		renderStatus() {
+				const score = this.state.score;
+				const active = this.state.active;
+				if (!active) {
+						return (
+								<div className="statusMessage">Click An Image To Begin!</div>
+						);
+				} else if (score === 0) {
+						return (
+								<div className="statusMessage" id="wrong">You Guessed Incorrectly!</div>
+						);
+				} else {
+						return (
+								<div className="statusMessage" id="correct">You Guessed Correctly!</div>
+						);
+				}
 
 		}
 
@@ -59,21 +81,33 @@ class App extends Component {
 
 		//Randomize at Mount
 		componentDidMount() {
-			this.shuffleCards();
+				// this.renderStatus();
+				this.shuffleCards();
 		}
 
 		render() {
 				return (
 						<div>
 								<Navbar fixed="top" className="text-white">
-										<NavbarBrand href="/">
-												React Memory Game
-										</NavbarBrand>
-										<div>
-												<span>Score: {this.state.score}</span>
-												|
-												<span>High Score: {this.state.highScore}</span>
-										</div>
+										<ul>
+												<li>
+														<NavbarBrand href="/">
+																React Memory Game
+														</NavbarBrand>
+												</li>
+												<li>
+														{this.renderStatus()}
+												</li>
+												<li>
+														<div>
+																<span>Score: {this.state.score}</span>
+																{" "}|{" "}
+																<span>High Score: {this.state.highScore}</span>
+														</div>
+												</li>
+
+										</ul>
+
 								</Navbar>
 								<Jumbotron>
 										<Container>

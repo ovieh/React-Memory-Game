@@ -19,8 +19,20 @@ nav {
 a.navbar-brand {
   font-weight: 900;
   color: rgb(255, 255, 255);
+  font-size: calc(10px + 14 * (100vw - 320px)/ 800);
+
+
 }
 
+.navbar ul {
+  display: block;
+  width: 100%;
+}
+.navbar li {
+  display: inline-block;
+  text-align: center;
+  width: 33.3%;
+}
 .jumbotron h1 {
   font-size: 4rem;
 }
