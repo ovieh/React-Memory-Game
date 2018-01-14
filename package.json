@@ -4,12 +4,15 @@
   "private": true,
   "dependencies": {
     "bootstrap": "4.0.0-beta.3",
+    "gh-pages": "^1.1.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts": "1.0.17",
     "reactstrap": "^5.0.0-alpha.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
@@ -18,5 +21,6 @@
   "devDependencies": {
     "eslint": "^4.15.0",
     "eslint-plugin-react": "^7.5.1"
-  }
+  },
+  "homepage": "https://ovieh.github.io/React-Memory-Game"
 }

@@ -62,6 +62,7 @@ class App extends Component {
 				} else if (score === 0) {
 						return (
 								<div className="statusMessage" id="wrong">You Guessed Incorrectly!</div>
+								
 						);
 				} else {
 						return (
